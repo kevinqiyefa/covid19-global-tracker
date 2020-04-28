@@ -20,3 +20,13 @@
 .deaths {
   border-bottom: 10px solid rgba(255, 0, 0, 0.5);
 }
+
+.casesTitle {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.emoji {
+  margin-right: 10px;
+}

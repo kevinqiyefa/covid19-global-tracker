@@ -11,6 +11,9 @@ import {
   Typography,
 } from '@material-ui/core';
 
+// import green from '@material-ui/core/colors/green';
+// import red from '@material-ui/core/colors/red';
+
 import styles from './Cards.module.css';
 
 const Cards = ({ cases: { confirmed, recovered, deaths, lastUpdate } }) => {
@@ -18,7 +21,6 @@ const Cards = ({ cases: { confirmed, recovered, deaths, lastUpdate } }) => {
     return <CircularProgress size="3rem" />;
   }
 
-  console.log(confirmed, recovered, deaths, lastUpdate);
   return (
     <div className={styles.cardsContainer}>
       <Grid container spacing={3} justify="center">
@@ -30,7 +32,15 @@ const Cards = ({ cases: { confirmed, recovered, deaths, lastUpdate } }) => {
           className={cx(styles.card, styles.infected)}
         >
           <CardContent>
-            <Typography color="textPrimary" gutterBottom>
+            <Typography
+              color="textPrimary"
+              gutterBottom
+              className={styles.casesTitle}
+            >
+              <i
+                className={cx(styles.emoji, 'em em-mask')}
+                aria-label="FACE WITH MEDICAL MASK"
+              ></i>
               Infected
             </Typography>
             <Typography variant="h5" component="h2">
@@ -58,7 +68,15 @@ const Cards = ({ cases: { confirmed, recovered, deaths, lastUpdate } }) => {
           className={cx(styles.card, styles.recovered)}
         >
           <CardContent>
-            <Typography color="textSecondary" gutterBottom>
+            <Typography
+              color="textSecondary"
+              gutterBottom
+              className={styles.casesTitle}
+            >
+              <i
+                className={cx(styles.emoji, 'em em-sunglasses')}
+                aria-label="SMILING FACE WITH SUNGLASSES"
+              ></i>
               Recovered
             </Typography>
             <Typography variant="h5" component="h2">
@@ -85,7 +103,15 @@ const Cards = ({ cases: { confirmed, recovered, deaths, lastUpdate } }) => {
           className={cx(styles.card, styles.deaths)}
         >
           <CardContent>
-            <Typography color="error" gutterBottom>
+            <Typography
+              color="error"
+              gutterBottom
+              className={styles.casesTitle}
+            >
+              <i
+                className={cx(styles.emoji, 'em em-zombie')}
+                aria-label="ZOMBIE"
+              ></i>
               Deaths
             </Typography>
             <Typography variant="h5" component="h2">
