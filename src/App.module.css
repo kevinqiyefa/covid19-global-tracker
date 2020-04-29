@@ -4,3 +4,7 @@
   flex-direction: column;
   margin: 5rem 0;
 }
+
+.image {
+  width: 370px;
+}

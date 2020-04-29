@@ -15,7 +15,7 @@ const Chart = (props) => {
     fetchMyAPI();
   }, []);
 
-  console.log('ss');
+  console.log('chart');
 
   const lineChart = dailyData[0] ? (
     <Line

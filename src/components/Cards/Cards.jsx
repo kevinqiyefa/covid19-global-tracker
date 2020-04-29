@@ -21,6 +21,8 @@ const Cards = ({ cases: { confirmed, recovered, deaths, lastUpdate } }) => {
     return <CircularProgress size="3rem" />;
   }
 
+  console.log('cards');
+
   return (
     <div className={styles.cardsContainer}>
       <Grid container spacing={3} justify="center">
