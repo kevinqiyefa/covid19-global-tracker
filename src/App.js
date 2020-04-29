@@ -22,7 +22,7 @@ function App() {
       <img className={styles.image} src={image} alt="COVID-19" />
       <Cards cases={cases} />
       <CountryPicker handleCountryChange={setCountry} />
-      <Chart />
+      <Chart country={country} cases={cases} />
     </div>
   );
 }

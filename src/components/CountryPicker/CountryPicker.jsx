@@ -2,7 +2,7 @@ import React, { useState, useEffect, memo } from 'react';
 import { FormControl, NativeSelect } from '@material-ui/core';
 import styles from './CountryPicker.module.css';
 import { fetchCountries } from '../../services/API';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 const CountryPicker = ({ handleCountryChange }) => {
   const [countries, setCountries] = useState([]);
@@ -14,7 +14,7 @@ const CountryPicker = ({ handleCountryChange }) => {
 
     fetchCountriesAPI();
   }, []);
-  console.log('countrypicker');
+
   return (
     <FormControl className={styles.formControl}>
       <NativeSelect
@@ -32,6 +32,8 @@ const CountryPicker = ({ handleCountryChange }) => {
   );
 };
 
-// CountryPicker.propTypes = {};
+CountryPicker.propTypes = {
+  handleCountryChange: PropTypes.func.isRequired,
+};
 
 export default memo(CountryPicker);

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Line } from 'react-chartjs-2';
+import { Line, Bar } from 'react-chartjs-2';
 import { fetchDailyCases } from '../../services/API';
 import styles from './Chart.module.css';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
-const Chart = (props) => {
+const Chart = ({ country, cases: { confirmed, recovered, deaths } }) => {
   const [dailyData, setDailyData] = useState([]);
 
   useEffect(() => {
@@ -15,7 +15,28 @@ const Chart = (props) => {
     fetchMyAPI();
   }, []);
 
-  console.log('chart');
+  const barChart = confirmed ? (
+    <Bar
+      data={{
+        labels: ['Infected', 'Recovered', 'Deaths'],
+        datasets: [
+          {
+            label: 'People',
+            backgroundColor: [
+              'rgba(0, 0, 255, 0.5)',
+              'rgba(0, 255, 0, 0.5)',
+              'rgba(255, 0, 0, 0.5)',
+            ],
+            data: [confirmed.value, recovered.value, deaths.value],
+          },
+        ],
+      }}
+      options={{
+        legend: { display: false },
+        title: { display: true, text: `Current state in ${country}` },
+      }}
+    />
+  ) : null;
 
   const lineChart = dailyData[0] ? (
     <Line
@@ -40,9 +61,15 @@ const Chart = (props) => {
       }}
     />
   ) : null;
-  return <div className={styles.container}>{lineChart}</div>;
+
+  return (
+    <div className={styles.container}> {country ? barChart : lineChart}</div>
+  );
 };
 
-// Chart.propTypes = {};
+Chart.propTypes = {
+  country: PropTypes.string,
+  cases: PropTypes.object,
+};
 
 export default React.memo(Chart);
