@@ -8,3 +8,16 @@
 .image {
   width: 370px;
 }
+
+@media only screen and (max-width: 770px) {
+  .App {
+    margin: 2rem 0;
+  }
+  .container {
+    margin: 0 10%;
+  }
+
+  .image {
+    max-width: 65%;
+  }
+}

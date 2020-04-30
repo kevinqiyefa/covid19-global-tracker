@@ -1,5 +1,13 @@
 .formControl {
   width: 30%;
-  margin-top: 2rem !important;
+  margin-top: 1rem !important;
   margin-bottom: 3rem !important;
+}
+
+@media only screen and (max-width: 770px) {
+  .formControl {
+    width: 50%;
+    margin-top: 0 !important;
+    margin-bottom: 2rem !important;
+  }
 }
